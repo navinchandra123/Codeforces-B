@@ -1,0 +1,49 @@
+//   https://codeforces.com/problemset/problem/58/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define inf 100000000000000000
+#define ll long long int
+#define pb push_back
+#define f first
+#define s second
+#define mod 1000000007
+#define fast ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
+void mahakal(){
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	freopen("error.txt","w",stderr);
+	#endif
+}
+
+int main(){
+	mahakal();fast;
+
+	ll n ;
+	cin>>n ;
+	vector<ll> vec;
+	for(ll i=1;i*i<=n;i++){
+		if(n%i==0){
+			if(i*i==n){
+				vec.pb(i);
+			}
+			else{
+				vec.pb(i);
+				vec.pb(n/i);
+			}
+		}
+	}
+	sort(vec.begin(),vec.end(),greater<ll>());
+	ll a=n;
+	cout<<a<<" ";
+	for(ll i=1;i<vec.size();i++){
+		if(a%vec[i]==0){
+			cout<<vec[i]<<" ";
+			a=vec[i];
+		}
+	}
+
+	return 0;
+}

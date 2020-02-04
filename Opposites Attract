@@ -1,0 +1,45 @@
+https://codeforces.com/problemset/problem/131/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define inf 100000000000000000
+#define ll long long int
+#define pb push_back
+#define f first
+#define s second
+#define mod 1000000007
+#define fast ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
+void mahakal(){
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	freopen("error.txt","w",stderr);
+	#endif
+}
+
+int main(){
+	mahakal();fast;
+	ll n ;
+	cin>>n;
+	map<ll,ll> mp;
+	for(ll i=0 , a ;i<n ;i++){
+		cin>>a;
+		mp[a]++;
+	}
+
+	ll ans =0;
+	for(auto x: mp){
+		if(mp.count(-1*x.f)>0){
+			if(x.f==0){
+				ans+=((x.s*(x.s-1))/2);
+				continue;
+			}
+			ans+=(x.s*mp[-x.f]);
+			mp.erase(-x.f);
+		}
+	}
+	cout<<ans<<endl;
+
+	return 0;
+}

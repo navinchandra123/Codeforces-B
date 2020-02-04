@@ -1,0 +1,49 @@
+//    https://codeforces.com/problemset/problem/122/B
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define inf 100000000000000000
+#define ll long long int
+#define pb push_back
+#define f first
+#define s second
+#define mod 1000000007
+#define fast ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL)
+void mahakal(){
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	freopen("error.txt","w",stderr);
+	#endif
+}
+
+int main(){
+	mahakal();fast;
+
+	string str;
+	cin>>str;
+	ll cnt4=0,cnt7=0;
+	for(ll i=0;i<str.length();i++){
+		if(str[i]=='4')cnt4++;
+		else if(str[i]=='7')cnt7++;
+	}
+	if(cnt4==0 && cnt7==0){
+		cout<<"-1"<<endl;
+		return 0;
+	}
+	ll mx = max(cnt4, cnt7);
+	if(mx==cnt4){
+		cout<<4<<endl;
+	}
+	else if(mx==cnt7){
+		cout<<7<<endl;
+	}
+	else{
+		cout<<4<<endl;
+	}
+
+	return 0;
+}
